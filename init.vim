@@ -85,6 +85,7 @@ autocmd! CursorHold,CursorHoldI * call HighlightWordUnderCursor()
 call plug#begin()
 " Plugins aqui
 Plug 'sainnhe/sonokai'
+Plug 'rakr/vim-one'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
@@ -117,7 +118,28 @@ let g:sonokai_current_word = 'bold'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'sonokai'
-colorscheme sonokai
+" let g:airline_theme='one'
+" colorscheme sonokai
+let g:one_allow_italics = 1
+
+if (empty($TMUX))
+  if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
+
+set background=dark " for the dark version
+" set background=light " for the light version
+colorscheme one
+
 
 if (has("nvim")) "Transparent background. Only for nvim
     highlight Normal guibg=NONE ctermbg=NONE
@@ -225,3 +247,17 @@ nnoremap <space>eb :CocCommand explorer --preset buffer<CR>
 " List all presets
 nnoremap <space>el :CocList explPresets
 
+"webdevicons图标
+if exists("g:loaded_webdevicons")
+    call webdevicons#refresh()
+endif
+let g:airline_powerline_fonts = 1
+let g:webdevicons_enable = 1
+let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_enable_unite = 1
+let g:webdevicons_enable_vimfiler = 0
+let g:webdevicons_enable_airline_tabline = 1
+let g:webdevicons_enable_airline_statusline = 1
+let g:webdevicons_enable_ctrlp = 0
+let g:webdevicons_enable_flagship_statusline = 0
+let g:WebDevIconsUnicodeDecorateFileNodes = 0
