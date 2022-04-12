@@ -107,8 +107,7 @@ if (has("nvim"))
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
 endif
-
-
+Plug 'APZelos/blamer.nvim'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -373,3 +372,14 @@ nnoremap <silent> <leader>sh :terminal<CR>
 let g:vim_bootstrap_langs = "html,javascript,python,ruby,typescript"
 
 let g:vim_bootstrap_frams = "vuejs"
+
+" Blame
+let g:blamer_enabled = 1
+let g:blamer_delay = 500
+let g:blamer_show_in_insert_modes = 0
+let g:blamer_show_in_visual_modes = 0
+" let g:blamer_template = '<committer> <summary>'
+let g:blamer_date_format = '%d/%m/%y'
+
+
+:let g:session_autoload = 'no'
