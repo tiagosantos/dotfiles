@@ -101,6 +101,7 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
 Plug 'Yggdroot/indentLine'
+Plug 'wakatime/vim-wakatime'
 Plug 'Raimondi/delimitMate'
 if (has("nvim"))
     Plug 'nvim-lua/plenary.nvim'
